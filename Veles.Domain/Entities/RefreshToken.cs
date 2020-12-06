@@ -14,8 +14,10 @@ namespace Veles.Domain.Entities
 
       public DateTime? CreatedAt { get; }
 
+      public DateTime ExpiryTime { get; }
 
-      private RefreshToken(Guid userId, string token, DateTime createdAt, DateTime? revokedAt = null)
+
+      private RefreshToken(Guid userId, string token, DateTime createdAt, DateTime expiryTime, DateTime? revokedAt = null)
       {
          if(string.IsNullOrWhiteSpace(token))
          {
@@ -25,6 +27,7 @@ namespace Veles.Domain.Entities
          UserId = userId;
          Token = token;
          CreatedAt = createdAt;
+         ExpiryTime = expiryTime;
          RevokedAt = revokedAt;
       }
 
@@ -38,7 +41,7 @@ namespace Veles.Domain.Entities
          RevokedAt = revokedAt;
       }
 
-      public static RefreshToken CreateRefreshToken(Guid userId, string token, DateTime createdAt, DateTime? revokedAt = null)
-         => new RefreshToken(userId, token, createdAt, revokedAt);
+      public static RefreshToken CreateRefreshToken(Guid userId, string token, DateTime createdAt, DateTime expiryTime, DateTime? revokedAt = null)
+         => new RefreshToken(userId, token, createdAt, expiryTime, revokedAt);
    }
 }
