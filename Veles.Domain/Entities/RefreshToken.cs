@@ -12,7 +12,7 @@ namespace Veles.Domain.Entities
 
       public DateTime? RevokedAt { get; private set; }
 
-      public DateTime? CreatedAt { get; }
+      public DateTime CreatedAt { get; }
 
       public DateTime ExpiryTime { get; }
 

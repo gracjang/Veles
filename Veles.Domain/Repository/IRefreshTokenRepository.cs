@@ -3,10 +3,10 @@
    using System.Threading.Tasks;
    using Veles.Domain.Entities;
 
-   interface IRefreshTokenRepository
+   public interface IRefreshTokenRepository
    {
-      Task AddAsync(RefreshToken token);
+      Task AddAsync(RefreshToken refreshToken);
       Task<RefreshToken> GetAsync(string token);
-      Task UpdateAsync(RefreshToken token);
+      Task UpdateAsync(RefreshToken refreshToken);
    }
 }
